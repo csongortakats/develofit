@@ -41,4 +41,22 @@
   } else {
     items.forEach(item => item.classList.add("is-visible"));
   }
+
+  const mailtoForm = document.querySelector("[data-mailto-form]");
+  if (mailtoForm instanceof HTMLFormElement) {
+    mailtoForm.addEventListener("submit", event => {
+      event.preventDefault();
+      const formData = new FormData(mailtoForm);
+      const subject = "Üzenet a DeveloFit weboldaláról";
+      const body = [
+        `Név: ${formData.get("name")}`,
+        `E-mail: ${formData.get("email")}`,
+        `Telefonszám: ${formData.get("phone") || "-"}`,
+        "",
+        "Üzenet:",
+        formData.get("message")
+      ].join("\n");
+      window.location.href = `mailto:info@develofit.hu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  }
 })();
