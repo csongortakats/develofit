@@ -3365,6 +3365,9 @@ h1 em,h2 em {
   font-size:14px;
   line-height:1.9
 }
+.privacy-download {
+  margin-top:20px
+}
 .privacy-content {
   background:var(--paper)
 }
