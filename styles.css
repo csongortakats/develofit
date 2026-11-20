@@ -2914,6 +2914,11 @@ h1 em,h2 em {
   background:var(--white);
   box-shadow:0 0 0 3px rgba(146,82,103,.12)
 }
+.contact-form input:not(:placeholder-shown):invalid,
+.contact-form textarea:not(:placeholder-shown):invalid,
+.contact-form select:invalid {
+  border-color:#9e3d50
+}
 .contact-consent {
   display:grid;
   grid-template-columns:18px 1fr;
@@ -2939,6 +2944,32 @@ h1 em,h2 em {
   margin:0 0 10px;
   color:var(--rose);
   font-size:11px
+}
+.contact-form-status.is-error {
+  color:#9e3d50;
+  font-weight:700
+}
+.contact-form label.is-invalid,
+.contact-consent.is-invalid {
+  color:#9e3d50
+}
+.contact-form input.is-invalid,
+.contact-form textarea.is-invalid,
+.contact-form select.is-invalid {
+  border-color:#9e3d50;
+  background:#fff8f8;
+  box-shadow:0 0 0 3px rgba(158,61,80,.1)
+}
+.contact-field-error {
+  min-height:0;
+  margin:-10px 0 12px;
+  color:#9e3d50;
+  font-size:11px;
+  font-weight:700;
+  line-height:1.5
+}
+.contact-field-error:empty {
+  display:none
 }
 .contact-form-note {
   margin:-3px 0 17px;
