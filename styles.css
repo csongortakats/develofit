@@ -39,6 +39,10 @@ a {
   color:inherit;
   text-decoration:none
 }
+:focus-visible {
+  outline:3px solid var(--rose);
+  outline-offset:4px
+}
 ::selection {
   background:var(--pink);
   color:var(--ink)
@@ -2886,7 +2890,8 @@ h1 em,h2 em {
   font-weight:700
 }
 .contact-form input,
-.contact-form textarea {
+.contact-form textarea,
+.contact-form select {
   width:100%;
   margin:0 0 16px;
   padding:12px 13px;
@@ -2903,10 +2908,37 @@ h1 em,h2 em {
   resize:vertical
 }
 .contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus,
+.contact-form select:focus {
   border-color:var(--rose);
   background:var(--white);
   box-shadow:0 0 0 3px rgba(146,82,103,.12)
+}
+.contact-consent {
+  display:grid;
+  grid-template-columns:18px 1fr;
+  align-items:start;
+  gap:9px;
+  margin:0 0 18px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.6
+}
+.contact-consent input {
+  width:18px;
+  height:18px;
+  margin:2px 0 0;
+  accent-color:var(--rose)
+}
+.contact-consent a {
+  color:var(--rose);
+  text-decoration:underline
+}
+.contact-form-status {
+  min-height:18px;
+  margin:0 0 10px;
+  color:var(--rose);
+  font-size:11px
 }
 .contact-form-note {
   margin:-3px 0 17px;

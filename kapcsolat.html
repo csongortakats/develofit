@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f8f4f4">
     <meta name="description" content="Ismerd meg a DeveloFit szakembereit, vedd fel velünk a kapcsolatot, és olvasd el a stúdió házirendjét.">
+    <link rel="canonical" href="https://www.develofit.hu/kapcsolat.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="hu_HU">
+    <meta property="og:site_name" content="DeveloFit Mozgás Stúdió">
+    <meta property="og:title" content="Kapcsolat és házirend | DeveloFit Mozgás Stúdió">
+    <meta property="og:description" content="Elérhetőségeink, időpontkérés és házirend a DeveloFit Mozgás Stúdióban, Győrben.">
+    <meta property="og:url" content="https://www.develofit.hu/kapcsolat.html">
+    <meta property="og:image" content="https://www.develofit.hu/pics/rebiesandi.png">
+    <meta name="twitter:card" content="summary_large_image">
     <title>Kapcsolat és házirend | DeveloFit Mozgás Stúdió</title>
     <link rel="icon" type="image/png" href="pics/develofit-favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -108,9 +117,22 @@
             <input id="contact-email" name="email" type="email" autocomplete="email" required>
             <label for="contact-phone">Telefonszám</label>
             <input id="contact-phone" name="phone" type="tel" autocomplete="tel">
+            <label for="contact-topic">Témakör</label>
+            <select id="contact-topic" name="topic" required>
+              <option value="" selected>Válassz témakört</option>
+              <option>Időpontfoglalás</option>
+              <option>DeveloFit edzés</option>
+              <option>DeveloFit módszer</option>
+              <option>Általános kérdés</option>
+            </select>
             <label for="contact-message">Üzenet</label>
             <textarea id="contact-message" name="message" rows="4" required></textarea>
+            <label class="contact-consent" for="contact-consent">
+              <input id="contact-consent" name="consent" type="checkbox" required>
+              <span>Elfogadom az <a href="adatvedelmi-tajekoztato.html" target="_blank">adatvédelmi tájékoztatóban</a> leírtak szerint a megadott adatok üzenetküldéshez történő felhasználását.</span>
+            </label>
             <p class="contact-form-note">Küldéskor megnyílik az eszközöd levelezőprogramja az előkészített üzenettel.</p>
+            <p class="contact-form-status" role="status" aria-live="polite"></p>
             <button class="button button-dark" type="submit">Üzenet előkészítése <span>↗</span></button>
           </form>
         </div>

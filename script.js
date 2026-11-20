@@ -3,11 +3,12 @@
   const nav = document.querySelector(".site-nav");
 
   if (toggle && nav) {
-    const closeMenu = () => {
+    const closeMenu = (returnFocus = false) => {
       toggle.setAttribute("aria-expanded", "false");
       toggle.setAttribute("aria-label", "Menü megnyitása");
       nav.classList.remove("is-open");
       document.body.classList.remove("menu-open");
+      if (returnFocus) toggle.focus();
     };
 
     toggle.addEventListener("click", () => {
@@ -20,7 +21,12 @@
 
     nav.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
     document.addEventListener("keydown", event => {
-      if (event.key === "Escape") closeMenu();
+      if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") closeMenu(true);
+    });
+    document.addEventListener("click", event => {
+      if (toggle.getAttribute("aria-expanded") === "true" &&
+          !nav.contains(event.target) &&
+          !toggle.contains(event.target)) closeMenu();
     });
     window.addEventListener("resize", () => {
       if (window.innerWidth > 820) closeMenu();
@@ -44,6 +50,7 @@
 
   const mailtoForm = document.querySelector("[data-mailto-form]");
   if (mailtoForm instanceof HTMLFormElement) {
+    const status = mailtoForm.querySelector("[role=status]");
     mailtoForm.addEventListener("submit", event => {
       event.preventDefault();
       const formData = new FormData(mailtoForm);
@@ -52,10 +59,13 @@
         `Név: ${formData.get("name")}`,
         `E-mail: ${formData.get("email")}`,
         `Telefonszám: ${formData.get("phone") || "-"}`,
+        `Témakör: ${formData.get("topic") || "-"}`,
+        `Adatvédelmi hozzájárulás: igen`,
         "",
         "Üzenet:",
         formData.get("message")
       ].join("\n");
+      if (status) status.textContent = "A levelezőalkalmazás megnyitása...";
       window.location.href = `mailto:info@develofit.hu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
   }
